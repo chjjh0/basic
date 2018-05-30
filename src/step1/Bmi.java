@@ -1,6 +1,12 @@
 package step1;
 import java.util.Scanner;
-
+/**
+-주제 : BMI 지수 구하기
+-내용 : 몸무게와 키를 입력받고 연산하여 BMI 지수를 출력
+-입력 : 이름, 몸무게, 키
+-출력 : 이름, BMI 지수, 정상/비정상 여부
+-기능 : 종료, 재시작
+**/
 public class Bmi {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
