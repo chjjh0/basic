@@ -10,58 +10,75 @@ import java.util.Scanner;
 [수열012] 홀수짝수의 합계
 **/
 public class EvenSum {
-	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
-		int evensum = 0, oddsum = 0, start = 0, end = 0, tmp = 0, num1 = 0, num2 = 0, count = 0, totalCount = 0;
-		String oddResult = "", evenResult = "";
+	static Scanner scan = new Scanner(System.in);
+
+	public static String[] input () {
+		String[] params = { "", "" };
+		System.out.println("첫번째 수를 입력하시오");
+		params[0] = scan.next();
+		System.out.println("두번째 수를 입력하시오");
+		params[1] = scan.next();
+		return params;
+	}
+	
+	public static String[] swap (String[] params) {
+		int num1 = Integer.parseInt(params[0]), num2 = Integer.parseInt(params[1]);
+		String[] result = new String[2];
+		if (num1 > num2) {
+			result[0] = String.valueOf(num2);
+			result[1] = String.valueOf(num1);
+		} else {
+			result[0] = String.valueOf(num1);
+			result[1] = String.valueOf(num2);
+		}
+		System.out.printf("입력한 값의 범위는  [%s] 부터 [%s] 까지입니다\n", result[0], result[1]);
+		return result;
+	}
+	
+	public static String[] total (String[] params) {
+		int start = 0, end = 0, oddSum = 0, evenSum = 0;
+		String[] result = { "", "", "", "" };
+		start = Integer.parseInt(params[0]);
+		end = Integer.parseInt(params[1]);
 		
-		for(;;) {
-			oddResult = ""; evenResult = ""; count = 0;
-			System.out.println("첫번째 수를 입력하시오");
-			num1 = scan.nextInt();
-			System.out.println("두번째 수를 입력하시오");
-			num2 = scan.nextInt();
-			if (num1 > num2) {
-				start = num2;
-				end = num1;
-			} else {
-				start = num1;
-				end = num2;
-			}
-			System.out.println("입력한 값의 범위는 " + start + "부터 " + end + "까지 입니다");
-			System.out.println("0 : 종료 1 : 홀수의 합 2 :짝수의 합");
-			switch (scan.nextInt()) {
-			case 0:
-				return;
-			case 1:
-				totalCount = end;
-				for (; start <= totalCount; start++) {
-					if (start % 2 == 1) {
-						oddsum += start;
-						count++;
-					}
-					oddResult = (start % 2 == 1)
-							? (start == end - 1) ? 
-									oddResult + start + " = " : 
-									oddResult + start + " + "
-							: oddResult + " ";
-				}
-				System.out.println(oddResult + oddsum + count + totalCount);
-				break;
-			case 2:
-				for (; start <= end; start++) {
-					if (start % 2 == 0) {
-						evensum += start;
-					}
-					evenResult = (start % 2 == 0)
-							? (start == end) ? evenResult + start + " = " : evenResult + start + " + "
-							: evenResult + " ";
-				}
-				System.out.println(evenResult + evensum);
-				break;
-			default:
-				System.out.println("잘못 입력했습니다");
-				return;
+		for(;start<=end;start++) {
+			if (start % 2 == 1) {
+				oddSum += start;
+				result[0] = String.valueOf(oddSum);
+				result[1] += (start == end-1) ? 
+						  start + " = " :
+						  start + " + ";
+			} else if(start % 2 == 0) { 
+				evenSum += start;
+				result[2] = String.valueOf(evenSum);
+				result[3] += (start == end) ? 
+					    start + " = " :
+						start + " + ";
+			} else System.out.println("ERROR");
+		}
+		return result;
+		}
+	
+	public static void main(String[] args) {
+		String[] params = new String[2];
+		String[] range = new String[4];
+		String[] result;
+		
+		while(true) {
+			System.out.println("[0] 종료  [1] 홀수의 합  [2] 짝수의 합");
+			switch(scan.nextInt()) {
+				case 0: return;
+				case 1: 
+					params = input();
+					result = total(swap(params));
+					System.out.printf("결과값 : %s %s \n", result[1], result[0]);
+					break;
+				case 2:
+					params = input();
+					result = total(swap(params));
+					System.out.printf("결과값 : %s %s \n", result[3], result[2]);
+					break;
+				default : System.out.println("ERROR"); break;
 			}
 		}
 	}
