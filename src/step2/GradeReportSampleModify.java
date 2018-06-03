@@ -16,15 +16,14 @@ public class GradeReportSampleModify {
 			result[0] = String.valueOf(sum += Integer.parseInt(params[i]));
 		}
 		
-		/*ver 2
-		String[] result = new String[2];
-		int sum = 0;
-		result[0] = String.valueOf(sum); 
+		//ver 2
+		/*String[] result = new String[2];
+		result[0] = "0"; 
 						
 		for(int i=0;i<params.length;i++) {
 			result[0] = String.valueOf(Integer.parseInt(result[0]) + Integer.parseInt(params[i]));
-		}*/
-		
+		}
+		*/
 		result[1] = String.valueOf(Integer.parseInt(result[0])/params.length);
 		return result;
 	}
