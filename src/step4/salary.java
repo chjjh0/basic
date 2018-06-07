@@ -1,8 +1,10 @@
 package step4;
 
+import java.util.Arrays;
+
 import javax.swing.JOptionPane;
 
-public class Celely {
+public class salary {
 enum Butt {
 	EXIT,
 	INPUT,
@@ -14,8 +16,10 @@ public static void main(String[] args) {
 			Butt.INPUT,
 			Butt.LIST,
 		};
+	String[][] mtx = new String[3][3];
+	String temp[] = new String[4];
+	int i=0, j=0;
 	while(true) {
-		String[][] mtx = new String[3][3];
 		
 		Butt select = (Butt)JOptionPane.showInputDialog(
 				null,	//frame
@@ -29,17 +33,11 @@ public static void main(String[] args) {
 		switch (select) {
 		case EXIT : return;
 		case INPUT :
-			
-			String dept = JOptionPane.showInputDialog(null, "부서");
-			mtx[0][0] = dept;
-			String name = JOptionPane.showInputDialog("이름");
-			mtx[1][1] = name;
-			String bonus = JOptionPane.showInputDialog("보너스");
-			mtx[2][2] = bonus;
+			String info = JOptionPane.showInputDialog(null, "부서/이름/보너스");
+			temp = info.split("/");
 			break;
 		case LIST :
-			System.out.println(mtx[0][0]);
-			JOptionPane.showMessageDialog(null, mtx);
+			JOptionPane.showMessageDialog(null, temp);
 			break;
 		default : 
 			break;

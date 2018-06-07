@@ -20,7 +20,6 @@ public static void main(String[] arrayrgs) {
 	}*/
 	
 	
-	
 	//4
 	/*for(int i=0;i<5;i++) {
 		if(i==0) {
