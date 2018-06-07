@@ -2,17 +2,22 @@ package step3;
 
 public class Matrix5x5 {
 public static void main(String[] arrayrgs) {
-	int array[][] = new int[5][5];
-	int plus = 0, fix = 5, rule = 0;
+	int array[][] = new int[7][4];
+	int plus = 0, fix = 7, rule = 3, fixColumn=1;
+	
+	
+
+
+
 	
 	//5
-	for(int i=0;i<fix;i++) {
+	/*for(int i=0;i<fix;i++) {
 		for(int j=0;j<(fix-rule);j++) {
 			plus++;
 			array[i][j] = (j >= rule) ? plus : 0;
 		}
 		rule = i < 2 ? rule +1 : rule-1;
-	}
+	}*/
 	
 	
 	
@@ -98,8 +103,8 @@ public static void main(String[] arrayrgs) {
 	    	array[i][j] = plus;
 	    }
 	}*/
-	for(int i=0;i<5;i++){
-	    for(int j=0;j<5;j++){
+	for(int i=0;i<array.length;i++){
+	    for(int j=0;j<4;j++){
 	        System.out.print(array[i][j] + "\t ");
 	    }
 	    System.out.println();
