@@ -118,9 +118,9 @@ public class Main {
  			case INPUT_LOTTO :
  				lotto = new Lotto();
  				lotto.setGameMoney(Integer.parseInt(JOptionPane.showInputDialog("게임비를 입금하세요 1000원 단위")));
- 				lotto.setBallNumber();
  				for(int i = 0;i<lotto.getCount();i++) {
  					lotto.setBallNumber();
+ 					lotto.setLottoList();
  				}
  				break;
  			case OUTPUT_LOTTO :

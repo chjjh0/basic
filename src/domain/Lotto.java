@@ -6,22 +6,18 @@ public class Lotto {
 	int lottoNum[];
 	String lottoList;
 	Random random = new Random();
+	public Lotto() {
+		lottoList = "";
+		count = 0;
+	}
 	public void setGameMoney(int gameMoney) {
 		this.count = gameMoney/1000;
-		System.out.println(count);
 	}
 	public void setBallNumber() {
 		lottoNum = new int[7];
 		int i=0, j=0;
-		for(i=0;i<6;i++) {
+		for(i=0;i<7;i++) {
 			lottoNum[i] = random.nextInt(45)+1;
-			System.out.println(lottoNum[0]);
-			System.out.println(lottoNum[1]);
-			System.out.println(lottoNum[2]);
-			System.out.println(lottoNum[3]);
-			System.out.println(lottoNum[4]);
-			System.out.println(lottoNum[5]);
-			System.out.println("end");
 			for(j=0;j<i;j++) {
 				if(lottoNum[i] == lottoNum[j]) {
 					i--;
@@ -31,8 +27,10 @@ public class Lotto {
 		}
 	}
 	public void setLottoList() {
-		for(int i=0;i<lottoNum.length;i++) {
-			lottoList += lottoNum[i] + " ";
+		for(int i=0;i<7;i++) {
+			lottoList = (i==6) ? 
+					lottoList + lottoNum[i] + "\n" :
+						lottoList + lottoNum[i] + " "; 
 		}
 	}
 	public int getCount() {
