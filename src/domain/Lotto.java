@@ -8,7 +8,6 @@ public class Lotto {
 	Random random = new Random();
 	public Lotto() {
 		lottoList = "";
-		count = 0;
 	}
 	public void setGameMoney(int gameMoney) {
 		this.count = gameMoney/1000;
